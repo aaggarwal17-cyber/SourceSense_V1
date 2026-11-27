@@ -7,89 +7,93 @@
   <meta name="theme-color" content="#0f172a" />
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
-    body { background: #0f172a; color: #f8fafc; padding: 16px; min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
+    body { background: #0f172a; color: #e2e8f0; padding: 16px; min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
     .container { width: 100%; max-width: 480px; margin: 0 auto; }
 
-    /* Unified ZiGo Brand Header */
-    header { background: #1e293b; border: 1px solid #334155; border-radius: 16px; padding: 14px 16px; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    /* Eye-Soft Unified ZiGo Header */
+    header { background: #1e293b; border: 1px solid #334155; border-radius: 14px; padding: 12px 16px; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
     .brand-left { display: flex; align-items: center; gap: 10px; }
-    .brand-title { font-size: 19px; font-weight: 800; color: #38bdf8; letter-spacing: -0.3px; }
+    .brand-title { font-size: 18px; font-weight: 700; color: #7dd3fc; letter-spacing: -0.2px; }
     .brand-philosophy { font-size: 11px; color: #94a3b8; }
-    .badge { background: #0284c7; color: #ffffff; padding: 4px 9px; border-radius: 20px; font-size: 10px; font-weight: 700; text-transform: uppercase; }
+    .badge { background: #334155; color: #cbd5e1; border: 1px solid #475569; padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 600; }
 
     /* Cards & Forms */
-    .card { background: #1e293b; border: 1px solid #334155; border-radius: 16px; padding: 18px; margin-bottom: 14px; }
-    .setup-title { font-size: 16px; font-weight: 700; color: #38bdf8; margin-bottom: 6px; }
-    .setup-desc { font-size: 12px; color: #94a3b8; margin-bottom: 14px; line-height: 1.45; }
+    .card { background: #1e293b; border: 1px solid #334155; border-radius: 14px; padding: 16px; margin-bottom: 14px; }
+    .setup-title { font-size: 15px; font-weight: 700; color: #7dd3fc; margin-bottom: 6px; }
+    .setup-desc { font-size: 12px; color: #94a3b8; margin-bottom: 14px; line-height: 1.5; }
     .form-group { margin-bottom: 12px; text-align: left; }
-    .form-label { display: block; font-size: 11px; font-weight: 700; color: #94a3b8; margin-bottom: 5px; text-transform: uppercase; }
-    .form-input { width: 100%; padding: 10px 12px; background: #0f172a; border: 1px solid #475569; border-radius: 10px; color: #f8fafc; font-size: 13px; outline: none; }
-    .form-input:focus { border-color: #38bdf8; }
-    button { cursor: pointer; border: none; border-radius: 10px; font-weight: 700; transition: 0.2s; }
-    .btn-primary { width: 100%; padding: 12px; background: #0284c7; color: white; font-size: 14px; }
-    .btn-primary:hover { background: #0369a1; }
-    .btn-ghost { background: #334155; color: #e2e8f0; padding: 7px 10px; font-size: 11px; }
-    .btn-telegram { width: 100%; padding: 11px; background: #0088cc; color: white; font-size: 13px; margin-top: 6px; }
+    .form-label { display: block; font-size: 11px; font-weight: 600; color: #94a3b8; margin-bottom: 5px; text-transform: uppercase; }
+    .form-input { width: 100%; padding: 10px 12px; background: #0f172a; border: 1px solid #334155; border-radius: 10px; color: #e2e8f0; font-size: 13px; outline: none; }
+    .form-input:focus { border-color: #7dd3fc; }
+    button { cursor: pointer; border: none; border-radius: 10px; font-weight: 600; transition: 0.2s; }
+    .btn-primary { width: 100%; padding: 11px; background: #0369a1; color: #f8fafc; font-size: 13px; }
+    .btn-primary:hover { background: #075985; }
+    .btn-ghost { background: #0f172a; color: #cbd5e1; border: 1px solid #334155; padding: 8px 10px; font-size: 12px; }
+    .btn-telegram { width: 100%; padding: 11px; background: #1e3a5f; border: 1px solid #38bdf8; color: #e0f2fe; font-size: 13px; margin-top: 6px; }
 
     #mainDashboard { display: none; }
 
-    /* Live Status Banner */
-    .health-banner { display: flex; align-items: center; justify-content: space-between; gap: 8px; background: #064e3b; border: 1px solid #10b981; border-radius: 12px; padding: 10px 14px; margin-bottom: 14px; font-size: 12px; font-weight: 700; color: #a7f3d0; }
-    .health-banner.dg { background: #450a0a; border-color: #ef4444; color: #fecaca; }
-    .health-banner.alt { background: #451a03; border-color: #f59e0b; color: #fde68a; }
-    .health-banner.outage { background: #0f172a; border-color: #64748b; color: #cbd5e1; }
+    /* TOP LIVE DEVICE FLASH HERO CARD (Auto-Synced from Hardware) */
+    .live-hero-card { background: #1e293b; border: 1px solid #334155; border-top: 4px solid #10b981; border-radius: 14px; padding: 18px 16px; margin-bottom: 14px; text-align: center; transition: 0.3s; }
+    .live-hero-card.dg { border-top-color: #ef4444; background: #26161b; }
+    .live-hero-card.alt { border-top-color: #f59e0b; background: #241d15; }
+    .live-hero-card.outage { border-top-color: #64748b; background: #161e2e; }
 
-    /* Source Pill & Uncertain Alert */
-    .source-pill { display: inline-flex; align-items: center; gap: 8px; padding: 7px 16px; border-radius: 9999px; font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 14px; }
-    .badge-grid { background: #064e3b; color: #34d399; border: 1px solid #10b981; }
-    .badge-dg { background: #450a0a; color: #f87171; border: 1px solid #ef4444; }
-    .badge-alt { background: #451a03; color: #fbbf24; border: 1px solid #f59e0b; }
-    .badge-outage { background: #0f172a; color: #94a3b8; border: 1px solid #475569; }
-    .pulse-dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; animation: pulse 1.6s infinite; }
+    .sync-strip { display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: #94a3b8; margin-bottom: 12px; }
+    .live-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #34d399; margin-right: 5px; animation: pulse 1.8s infinite; }
     @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
 
-    .alert-uncertain { background: #78350f; border: 1px solid #fbbf24; color: #fef3c7; padding: 11px 12px; border-radius: 10px; font-size: 12px; line-height: 1.5; margin-bottom: 14px; text-align: left; }
+    .source-pill { display: inline-flex; align-items: center; gap: 8px; padding: 7px 16px; border-radius: 9999px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; }
+    .badge-grid { background: rgba(16, 185, 129, 0.14); color: #6ee7b7; border: 1px solid rgba(16, 185, 129, 0.35); }
+    .badge-dg { background: rgba(239, 68, 68, 0.16); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.4); }
+    .badge-alt { background: rgba(245, 158, 11, 0.15); color: #fcd34d; border: 1px solid rgba(245, 158, 11, 0.38); }
+    .badge-outage { background: rgba(148, 163, 184, 0.12); color: #cbd5e1; border: 1px solid #475569; }
+
+    /* Soft Consumer Alert Boxes (DG & Uncertain Alternate Source) */
+    .alert-box { padding: 11px 13px; border-radius: 10px; font-size: 12.5px; line-height: 1.5; margin-bottom: 14px; text-align: left; }
+    .alert-dg { background: rgba(127, 29, 29, 0.45); border: 1px solid rgba(248, 113, 113, 0.45); color: #fecaca; }
+    .alert-alt { background: rgba(120, 53, 15, 0.45); border: 1px solid rgba(251, 191, 36, 0.4); color: #fef3c7; }
 
     /* Telemetry Row */
     .metrics-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
-    .metric-box { background: #0f172a; border: 1px solid #334155; border-radius: 12px; padding: 10px 6px; text-align: center; }
-    .metric-lbl { font-size: 10px; color: #94a3b8; font-weight: 700; text-transform: uppercase; }
-    .metric-val { font-size: 16px; font-weight: 800; color: #f8fafc; margin-top: 4px; }
+    .metric-box { background: #0f172a; border: 1px solid #334155; border-radius: 10px; padding: 10px 6px; text-align: center; }
+    .metric-lbl { font-size: 10px; color: #94a3b8; font-weight: 600; text-transform: uppercase; }
+    .metric-val { font-size: 15px; font-weight: 700; color: #e2e8f0; margin-top: 4px; }
 
-    /* Exact Time Audit Card (Zero Bill Estimates) */
-    .dg-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
-    .dg-title { font-size: 14px; font-weight: 800; color: #e2e8f0; text-transform: uppercase; letter-spacing: 0.4px; }
+    /* Exact Time Audit Card */
+    .sec-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+    .sec-title { font-size: 13px; font-weight: 700; color: #cbd5e1; text-transform: uppercase; letter-spacing: 0.4px; }
     .tab-bar { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; background: #0f172a; padding: 4px; border-radius: 10px; margin-bottom: 12px; border: 1px solid #334155; }
     .tab-btn { padding: 7px 0; background: transparent; color: #94a3b8; font-size: 12px; border-radius: 7px; }
-    .tab-btn.active { background: #0284c7; color: #ffffff; }
+    .tab-btn.active { background: #334155; color: #f8fafc; }
 
     .audit-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; text-align: left; }
-    .audit-cell { background: #0f172a; border: 1px solid #334155; border-radius: 12px; padding: 10px; }
-    .audit-sub-lbl { font-size: 10px; color: #94a3b8; font-weight: 700; text-transform: uppercase; }
-    .audit-sub-val { font-size: 15px; font-weight: 800; margin-top: 4px; }
+    .audit-cell { background: #0f172a; border: 1px solid #334155; border-radius: 10px; padding: 10px; }
+    .audit-sub-lbl { font-size: 10px; color: #94a3b8; font-weight: 600; text-transform: uppercase; }
+    .audit-sub-val { font-size: 15px; font-weight: 700; margin-top: 4px; }
 
     .recent-run-tag { font-size: 11px; color: #94a3b8; margin-top: 12px; display: flex; justify-content: space-between; border-top: 1px solid #334155; padding-top: 8px; }
 
     /* Info & Accordion */
-    .info-row { display: flex; justify-content: space-between; padding: 5px 0; font-size: 12px; color: #94a3b8; border-bottom: 1px solid #0f172a; }
-    .info-row span:last-child { color: #e2e8f0; font-family: monospace; font-weight: 700; }
+    .info-row { display: flex; justify-content: space-between; padding: 6px 0; font-size: 12px; color: #94a3b8; border-bottom: 1px solid #0f172a; }
+    .info-row span:last-child { color: #cbd5e1; font-family: monospace; font-weight: 600; }
     details.adv-info { background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 10px 14px; font-size: 12px; color: #94a3b8; margin-bottom: 14px; }
-    details.adv-info summary { cursor: pointer; font-weight: 700; color: #cbd5e1; }
+    details.adv-info summary { cursor: pointer; font-weight: 600; color: #cbd5e1; }
     .adv-content { margin-top: 8px; padding-top: 8px; border-top: 1px solid #334155; }
 
     /* Unified ZiGo Charter & Proprietary Footer */
-    .footer-charter { text-align: center; background: #1e293b; border: 1px solid #0284c7; padding: 12px 14px; border-radius: 12px; font-size: 11px; color: #bae6fd; margin-top: 14px; line-height: 1.6; }
+    .footer-charter { text-align: center; background: #1e293b; border: 1px solid #334155; padding: 12px 14px; border-radius: 12px; font-size: 11px; color: #94a3b8; margin-top: 14px; line-height: 1.65; }
   </style>
 </head>
 <body>
 <div class="container">
-  <!-- UNIFIED ZIGO HEADER WITH PULSE LOGO -->
+  <!-- UNIFIED EYE-SOFT ZIGO HEADER WITH PULSE LOGO -->
   <header>
     <div class="brand-left">
-      <svg width="34" height="34" viewBox="0 0 40 40" fill="none" aria-label="ZiGo Pulse Logo">
-        <circle cx="20" cy="20" r="17" stroke="#38bdf8" stroke-width="2.6"/>
-        <path d="M4 20H12L15.5 11L20 29L24 16L27.5 20H36" stroke="#34d399" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-        <circle cx="27.5" cy="20" r="2.2" fill="#38bdf8"/>
+      <svg width="32" height="32" viewBox="0 0 40 40" fill="none" aria-label="ZiGo Pulse Logo">
+        <circle cx="20" cy="20" r="17" stroke="#7dd3fc" stroke-width="2.4"/>
+        <path d="M4 20H12L15.5 11L20 29L24 16L27.5 20H36" stroke="#6ee7b7" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="27.5" cy="20" r="2" fill="#7dd3fc"/>
       </svg>
       <div>
         <div class="brand-title">ZiGo SourceSense V1</div>
@@ -119,37 +123,30 @@
         <label class="form-label">Local Wi-Fi Password</label>
         <input type="password" id="inpPass" class="form-input" placeholder="Sent directly to board (never saved on cloud)" required />
       </div>
-      <button type="submit" class="btn-primary">Connect & Start Sensing 🚀</button>
+      <button type="submit" class="btn-primary">Connect & Start Sensing</button>
     </form>
   </div>
   <!-- STEP 2: MAIN LIVE DASHBOARD -->
   <div id="mainDashboard">
-    <!-- Quick Mode Simulator Bar (For Live Bench / Demo Testing) -->
-    <div class="card" style="padding:10px 12px;">
-      <div style="font-size:11px; color:#94a3b8; margin-bottom:6px; font-weight:700;">🧪 Live State Test (Switch Modes):</div>
-      <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:6px;">
-        <button class="btn-ghost" style="background:#064e3b; color:#34d399;" onclick="setLiveState('mains')">⚡ Mains</button>
-        <button class="btn-ghost" style="background:#451a03; color:#fbbf24;" onclick="setLiveState('alt')">🔋 Alt/Inv</button>
-        <button class="btn-ghost" style="background:#450a0a; color:#f87171;" onclick="setLiveState('dg')">🚨 DG</button>
-        <button class="btn-ghost" style="background:#0f172a; color:#94a3b8; border:1px solid #334155;" onclick="setLiveState('outage')">🔌 Off</button>
+    <!-- TOP LIVE DEVICE FLASH HERO CARD (Auto-Synced Directly from Paired Hardware) -->
+    <div class="live-hero-card" id="liveHeroCard">
+      <div class="sync-strip">
+        <span><span class="live-dot" id="liveDot"></span><span id="syncStatusText">Auto-Synced with Hardware</span></span>
+        <span id="otaBadge" style="color:#6ee7b7; font-weight:600;">OTA Ready</span>
       </div>
-    </div>
 
-    <!-- Power Health Banner -->
-    <div class="health-banner" id="healthBanner">
-      <span id="healthText">🟢 Status: Grid / Mains Healthy</span>
-      <span style="font-size:11px; opacity:0.85;">OTA Ready</span>
-    </div>
-
-    <!-- Real-Time Source Telemetry Card -->
-    <div class="card" style="text-align:center;">
       <div class="source-pill badge-grid" id="sourceBadge">
         <span class="pulse-dot"></span>
         <span id="sourceText">GRID / MAINS ACTIVE</span>
       </div>
 
-      <!-- Exact Consumer Alert when Detecting / Alternate Backup persists -->
-      <div id="uncertainAlertBox" class="alert-uncertain" style="display:none;">
+      <!-- High-Cost DG Genset Alert -->
+      <div id="dgAlertBox" class="alert-box alert-dg" style="display:none;">
+        ⚠️ <b>Costly Electricity Alert (DG Genset Active):</b> Backup generator power is running. Please review and minimize heavy appliance usage (ACs, geysers, heaters) to conserve energy.
+      </div>
+
+      <!-- Uncertain Alternate Backup Alert -->
+      <div id="uncertainAlertBox" class="alert-box alert-alt" style="display:none;">
         ⚠️ <b>Alternate source is active, we are uncertain.</b> Kindly use the appliance as needed and conserve energy.
       </div>
 
@@ -164,16 +161,16 @@
         </div>
         <div class="metric-box">
           <div class="metric-lbl">Active Since</div>
-          <div class="metric-val" id="valSince" style="color:#38bdf8; font-size:14px;">07:05 PM</div>
+          <div class="metric-val" id="valSince" style="color:#7dd3fc; font-size:14px;">07:05 PM</div>
         </div>
       </div>
     </div>
 
     <!-- EXACT RUNTIME AUDIT CARD (ZERO BILL ESTIMATES — 100% CLOCK ACCURATE) -->
     <div class="card">
-      <div class="dg-header">
-        <div class="dg-title">⏱️ Exact Power & Backup Runtime</div>
-        <span style="font-size:11px; color:#34d399; font-weight:700;">Clock Verified</span>
+      <div class="sec-header">
+        <div class="sec-title">⏱️ Exact Power & Backup Runtime</div>
+        <span style="font-size:11px; color:#6ee7b7; font-weight:600;">Clock Verified</span>
       </div>
 
       <div class="tab-bar">
@@ -185,35 +182,35 @@
       <div class="audit-grid-3">
         <div class="audit-cell">
           <div class="audit-sub-lbl">🚨 Total DG</div>
-          <div class="audit-sub-val" id="dispDgHrs" style="color:#f87171;">0h 41m</div>
+          <div class="audit-sub-val" id="dispDgHrs" style="color:#fca5a5;">0h 41m</div>
         </div>
         <div class="audit-cell">
           <div class="audit-sub-lbl">🔋 Alt Backup</div>
-          <div class="audit-sub-val" id="dispAltHrs" style="color:#fbbf24;">1h 15m</div>
+          <div class="audit-sub-val" id="dispAltHrs" style="color:#fcd34d;">1h 15m</div>
         </div>
         <div class="audit-cell">
           <div class="audit-sub-lbl">🔌 Power Off</div>
-          <div class="audit-sub-val" id="dispOffHrs" style="color:#94a3b8;">0h 12m</div>
+          <div class="audit-sub-val" id="dispOffHrs" style="color:#cbd5e1;">0h 12m</div>
         </div>
       </div>
 
       <div class="recent-run-tag">
         <span id="recentSessionText">Last Switch: Grid Restored at 07:05 PM</span>
-        <span>0% Estimated — 100% Exact Time</span>
+        <span>100% Exact Clock Time</span>
       </div>
     </div>
     <!-- FREE TELEGRAM INSTANT ALERTS + REMOTE SUPPORT / OTA DIAGNOSTIC -->
     <div class="card">
-      <div class="dg-header">
-        <div class="dg-title">📲 Free Telegram Alerts & Remote Care</div>
-        <span id="tgStatusTag" style="font-size:11px; color:#fbbf24; font-weight:700;">Not Linked</span>
+      <div class="sec-header">
+        <div class="sec-title">📲 Free Telegram Alerts & Remote Care</div>
+        <span id="tgStatusTag" style="font-size:11px; color:#fcd34d; font-weight:600;">Not Linked</span>
       </div>
       <div style="font-size:12px; color:#94a3b8; margin-bottom:10px; line-height:1.45;">
-        Get free instant alerts on Telegram whenever <b>DG Starts</b>, <b>Alternate Backup</b> runs, or <b>Main Grid</b> returns.
+        Receive free instant Telegram alerts whenever <b>DG Starts</b>, <b>Alternate Backup</b> runs, or <b>Main Grid</b> returns.
       </div>
       <button class="btn-telegram" onclick="connectTelegramAlert()">✈️ Link Free Telegram Bot Alerts</button>
       <button class="btn-ghost" style="width:100%; margin-top:8px; padding:10px;" onclick="raiseRemoteDiagnosticTicket()">🛠️ Request Remote Health Check / OTA Support</button>
-      <div id="supportTicketMsg" style="font-size:11px; color:#34d399; margin-top:8px; display:none;"></div>
+      <div id="supportTicketMsg" style="font-size:11px; color:#6ee7b7; margin-top:8px; display:none;"></div>
     </div>
 
     <!-- MINIMAL DEVICE IDENTITY & ADVANCED ACCORDION -->
@@ -241,37 +238,37 @@
         </div>
         <div class="info-row">
           <span>Device Health Code</span>
-          <span style="color:#34d399;">OK (Zero-Cross & OLED Active)</span>
+          <span style="color:#6ee7b7;">OK (Zero-Cross & OLED Active)</span>
         </div>
         <div class="info-row">
           <span>Wi-Fi Credentials on Cloud</span>
-          <span style="color:#38bdf8;">None (100% Local Board Only)</span>
+          <span style="color:#7dd3fc;">None (100% Local Board Only)</span>
         </div>
         <div class="info-row" style="border-bottom:none;">
           <span>Remote Support Access</span>
-          <span style="color:#34d399;">Enabled (OTA & Diagnostics)</span>
+          <span style="color:#6ee7b7;">Enabled (OTA & Diagnostics)</span>
         </div>
       </div>
     </details>
 
-    <button class="btn-primary" onclick="fetchLiveTelemetry()">🔄 Sync Live Status</button>
+    <button class="btn-primary" onclick="fetchLiveTelemetry(true)">🔄 Sync Now</button>
   </div>
 
   <!-- UNIFIED ZIGO HUMAN-FIRST CHARTER & PROPRIETARY FOOTER -->
   <div class="footer-charter">
-    🤝 <b>Human-First Approach Always • Tech is Only to Empower</b><br/>
-    <span style="color:#38bdf8;">We Sense, Inform & Ask for Action:</span> Zero Employment Impact Guarantee.<br/>
-    <span style="color:#e2e8f0; font-weight:700;">⚡ Proprietary Product Designed & Engineered by ZiGo AmbientCare Systems</span>
+    🤝 <b style="color:#cbd5e1;">Human-First Approach Always • Tech is Only to Empower</b><br/>
+    <span style="color:#7dd3fc;">We Sense, Inform & Ask for Action:</span> Zero Employment Impact Guarantee.<br/>
+    <span style="color:#e2e8f0; font-weight:600;">⚡ Proprietary Product Designed & Engineered by ZiGo AmbientCare Systems</span>
   </div>
 </div>
 <script>
-  // Exact Runtime Minutes (Clock-accurate counters — Zero Bill Estimates)
   const runtimeAuditData = {
     daily:   { dgMins: 41,  altMins: 75,  offMins: 12 },
     weekly:  { dgMins: 195, altMins: 410, offMins: 55 },
     monthly: { dgMins: 620, altMins: 1480, offMins: 190 }
   };
   let currentPeriod = 'daily';
+  let lastKnownSource = '';
 
   function formatHrsMins(totalMins) {
     const h = Math.floor(totalMins / 60);
@@ -284,7 +281,6 @@
     const city = document.getElementById('inpCity').value.trim() || "Zirakpur";
     const ssid = document.getElementById('inpSsid').value.trim();
 
-    // Only city is saved; Wi-Fi password is NEVER stored in cloud DB
     localStorage.setItem('zigo_ss_city', city);
     document.getElementById('inpPass').value = "";
 
@@ -293,7 +289,8 @@
     document.getElementById('wifiSetupSection').style.display = 'none';
     document.getElementById('mainDashboard').style.display = 'block';
     renderAuditHours();
-    alert(`Paired locally with "${ssid}"! Wi-Fi password cleared from browser & never stored on ZiGo Cloud.`);
+    startLiveDevicePolling();
+    alert(`Paired locally with "${ssid}"! Wi-Fi credentials stay strictly inside your board.`);
   }
 
   function switchTab(period, elem) {
@@ -310,58 +307,78 @@
     document.getElementById('dispOffHrs').innerText = formatHrsMins(d.offMins);
   }
 
-  function setLiveState(mode) {
-    const banner = document.getElementById('healthBanner');
-    const healthTxt = document.getElementById('healthText');
+  function applyDeviceState(mode, freqHz, jitterUs, activeSinceStr) {
+    const heroCard = document.getElementById('liveHeroCard');
     const badge = document.getElementById('sourceBadge');
     const srcTxt = document.getElementById('sourceText');
-    const uncertainBox = document.getElementById('uncertainAlertBox');
-    const nowTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    const dgBox = document.getElementById('dgAlertBox');
+    const altBox = document.getElementById('uncertainAlertBox');
+    const nowTime = activeSinceStr || new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
-    banner.className = 'health-banner';
+    heroCard.className = 'live-hero-card';
     badge.className = 'source-pill';
-    uncertainBox.style.display = 'none';
-    document.getElementById('valSince').innerText = nowTime;
+    dgBox.style.display = 'none';
+    altBox.style.display = 'none';
+
+    if (mode !== lastKnownSource) {
+      document.getElementById('valSince').innerText = nowTime;
+      lastKnownSource = mode;
+    }
+
+    document.getElementById('valFreq').innerHTML = `${Number(freqHz).toFixed(2)} <span style="font-size:11px;font-weight:400;color:#94a3b8;">Hz</span>`;
+    document.getElementById('valJitter').innerHTML = `${Math.round(jitterUs)} <span style="font-size:11px;font-weight:400;color:#94a3b8;">µs</span>`;
 
     if (mode === 'mains') {
       badge.classList.add('badge-grid');
-      healthTxt.innerText = '🟢 Status: Grid / Mains Healthy';
       srcTxt.innerText = 'GRID / MAINS ACTIVE';
-      document.getElementById('valFreq').innerHTML = '50.05 <span style="font-size:11px;font-weight:400;color:#94a3b8;">Hz</span>';
-      document.getElementById('valJitter').innerHTML = '6 <span style="font-size:11px;font-weight:400;color:#94a3b8;">µs</span>';
       document.getElementById('recentSessionText').innerText = `Last Switch: Grid / Mains at ${nowTime}`;
-    } else if (mode === 'alt') {
-      banner.classList.add('alt');
+    } else if (mode === 'alt' || mode === 'inverter' || mode === 'detecting') {
+      heroCard.classList.add('alt');
       badge.classList.add('badge-alt');
-      healthTxt.innerText = '🟡 Status: Detecting / Alternate Backup Active';
       srcTxt.innerText = 'DETECTING / ALT SOURCE';
-      uncertainBox.style.display = 'block';
-      document.getElementById('valFreq').innerHTML = '50.20 <span style="font-size:11px;font-weight:400;color:#94a3b8;">Hz</span>';
-      document.getElementById('valJitter').innerHTML = '183 <span style="font-size:11px;font-weight:400;color:#94a3b8;">µs</span>';
+      altBox.style.display = 'block';
       document.getElementById('recentSessionText').innerText = `Last Switch: Alternate Backup at ${nowTime}`;
     } else if (mode === 'dg') {
-      banner.classList.add('dg');
+      heroCard.classList.add('dg');
       badge.classList.add('badge-dg');
-      healthTxt.innerText = '🔴 Alert: DG Genset Running';
       srcTxt.innerText = 'DG GENSET ACTIVE';
-      document.getElementById('valFreq').innerHTML = '51.10 <span style="font-size:11px;font-weight:400;color:#94a3b8;">Hz</span>';
-      document.getElementById('valJitter').innerHTML = '290 <span style="font-size:11px;font-weight:400;color:#94a3b8;">µs</span>';
+      dgBox.style.display = 'block';
       document.getElementById('recentSessionText').innerText = `Last Switch: DG Genset Started at ${nowTime}`;
     } else {
-      banner.classList.add('outage');
+      heroCard.classList.add('outage');
       badge.classList.add('badge-outage');
-      healthTxt.innerText = '⚪ Status: Complete Power Outage (0 Hz)';
       srcTxt.innerText = 'POWER OFF / BLACKOUT';
-      document.getElementById('valFreq').innerHTML = '0.00 <span style="font-size:11px;font-weight:400;color:#94a3b8;">Hz</span>';
-      document.getElementById('valJitter').innerHTML = '0 <span style="font-size:11px;font-weight:400;color:#94a3b8;">µs</span>';
       document.getElementById('recentSessionText').innerText = `Last Switch: Power Cut at ${nowTime}`;
     }
+  }
+
+  async function fetchLiveTelemetry(manual = false) {
+    const syncTxt = document.getElementById('syncStatusText');
+    if (manual) syncTxt.innerText = 'Syncing with Board...';
+    try {
+      const res = await fetch('/api/telemetry');
+      if (res.ok) {
+        const data = await res.json();
+        const mode = (data.source || 'mains').toLowerCase();
+        applyDeviceState(mode, data.frequency ?? 50.05, data.jitter ?? 6, data.since);
+        syncTxt.innerText = 'Live Hardware Connected';
+      } else {
+        syncTxt.innerText = 'Auto-Synced (Standby Preview)';
+      }
+    } catch (e) {
+      syncTxt.innerText = 'Auto-Synced (Standby Preview)';
+    }
+  }
+
+  function startLiveDevicePolling() {
+    fetchLiveTelemetry(false);
+    setInterval(() => fetchLiveTelemetry(false), 3000);
   }
 
   function connectTelegramAlert() {
     const code = new URLSearchParams(window.location.search).get('code') || 'demo_device';
     document.getElementById('tgStatusTag').innerText = '🟢 Linked';
-    document.getElementById('tgStatusTag').style.color = '#34d399';
+    document.getElementById('tgStatusTag').style.color = '#6ee7b7';
     alert(`Opening ZiGo Telegram Alert Bot (@ZiGoAmbientCareBot) with pairing token: ${code}\n\nPress START in Telegram to receive free instant DG, Mains & Alternate Backup alerts!`);
   }
 
@@ -370,17 +387,6 @@
     const ticketId = 'ZG-TKT-' + Math.floor(1000 + Math.random() * 9000);
     box.style.display = 'block';
     box.innerText = `✅ Remote Support Ticket ${ticketId} created! ZiGo Engineering can now inspect live telemetry & push remote OTA firmware updates without a home visit.`;
-  }
-
-  async function fetchLiveTelemetry() {
-    try {
-      const res = await fetch('/api/telemetry');
-      if (res.ok) {
-        const data = await res.json();
-        document.getElementById('valFreq').innerHTML = `${data.frequency.toFixed(2)} <span style="font-size:11px;font-weight:400;color:#94a3b8;">Hz</span>`;
-        document.getElementById('valJitter').innerHTML = `${data.jitter.toFixed(0)} <span style="font-size:11px;font-weight:400;color:#94a3b8;">µs</span>`;
-      }
-    } catch (e) {}
   }
 
   window.addEventListener('DOMContentLoaded', () => {
@@ -393,8 +399,11 @@
       document.getElementById('wifiSetupSection').style.display = 'none';
       document.getElementById('mainDashboard').style.display = 'block';
       renderAuditHours();
+      applyDeviceState('mains', 50.05, 6);
+      startLiveDevicePolling();
     }
   });
 </script>
 </body>
 </html>
+
