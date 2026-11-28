@@ -37,22 +37,24 @@
     .live-hero-card { background: #1e293b; border: 1px solid #334155; border-top: 4px solid #10b981; border-radius: 14px; padding: 18px 16px; margin-bottom: 14px; text-align: center; transition: 0.3s; }
     .live-hero-card.dg { border-top-color: #ef4444; background: #26161b; }
     .live-hero-card.alt { border-top-color: #f59e0b; background: #241d15; }
-    .live-hero-card.outage { border-top-color: #64748b; background: #161e2e; }
+    .live-hero-card.offline { border-top-color: #64748b; background: #161e2e; }
 
     .sync-strip { display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: #94a3b8; margin-bottom: 12px; }
     .live-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #34d399; margin-right: 5px; animation: pulse 1.8s infinite; }
+    .live-dot.off { background: #94a3b8; animation: none; }
     @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
 
     .source-pill { display: inline-flex; align-items: center; gap: 8px; padding: 7px 16px; border-radius: 9999px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; }
     .badge-grid { background: rgba(16, 185, 129, 0.14); color: #6ee7b7; border: 1px solid rgba(16, 185, 129, 0.35); }
     .badge-dg { background: rgba(239, 68, 68, 0.16); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.4); }
     .badge-alt { background: rgba(245, 158, 11, 0.15); color: #fcd34d; border: 1px solid rgba(245, 158, 11, 0.38); }
-    .badge-outage { background: rgba(148, 163, 184, 0.12); color: #cbd5e1; border: 1px solid #475569; }
+    .badge-offline { background: rgba(148, 163, 184, 0.12); color: #cbd5e1; border: 1px solid #475569; }
 
-    /* Soft Consumer Alert Boxes (DG & Uncertain Alternate Source) */
+    /* Soft Consumer Alert Boxes */
     .alert-box { padding: 11px 13px; border-radius: 10px; font-size: 12.5px; line-height: 1.5; margin-bottom: 14px; text-align: left; }
     .alert-dg { background: rgba(127, 29, 29, 0.45); border: 1px solid rgba(248, 113, 113, 0.45); color: #fecaca; }
     .alert-alt { background: rgba(120, 53, 15, 0.45); border: 1px solid rgba(251, 191, 36, 0.4); color: #fef3c7; }
+    .alert-off { background: rgba(30, 41, 59, 0.85); border: 1px solid #475569; color: #cbd5e1; }
 
     /* Telemetry Row */
     .metrics-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
@@ -60,19 +62,24 @@
     .metric-lbl { font-size: 10px; color: #94a3b8; font-weight: 600; text-transform: uppercase; }
     .metric-val { font-size: 15px; font-weight: 700; color: #e2e8f0; margin-top: 4px; }
 
-    /* Exact Time Audit Card */
-    .sec-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+    /* Exact Time Audit Card + Hourly/Daily/Weekly/Monthly + 4 Source Tabs */
+    .sec-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
     .sec-title { font-size: 13px; font-weight: 700; color: #cbd5e1; text-transform: uppercase; letter-spacing: 0.4px; }
-    .tab-bar { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; background: #0f172a; padding: 4px; border-radius: 10px; margin-bottom: 12px; border: 1px solid #334155; }
-    .tab-btn { padding: 7px 0; background: transparent; color: #94a3b8; font-size: 12px; border-radius: 7px; }
+    .tab-bar-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; background: #0f172a; padding: 4px; border-radius: 10px; margin-bottom: 8px; border: 1px solid #334155; }
+    .tab-btn { padding: 7px 0; background: transparent; color: #94a3b8; font-size: 11.5px; border-radius: 7px; }
     .tab-btn.active { background: #334155; color: #f8fafc; }
 
-    .audit-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; text-align: left; }
-    .audit-cell { background: #0f172a; border: 1px solid #334155; border-radius: 10px; padding: 10px; }
-    .audit-sub-lbl { font-size: 10px; color: #94a3b8; font-weight: 600; text-transform: uppercase; }
-    .audit-sub-val { font-size: 15px; font-weight: 700; margin-top: 4px; }
+    .src-filter-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; margin-bottom: 12px; }
+    .src-pill-btn { padding: 6px 0; background: #0f172a; border: 1px solid #334155; color: #94a3b8; font-size: 11px; border-radius: 7px; }
+    .src-pill-btn.active { border-color: #7dd3fc; color: #7dd3fc; background: rgba(125, 211, 252, 0.12); }
 
-    .recent-run-tag { font-size: 11px; color: #94a3b8; margin-top: 12px; display: flex; justify-content: space-between; border-top: 1px solid #334155; padding-top: 8px; }
+    .selected-stat-card { background: #0f172a; border: 1px solid #334155; border-radius: 12px; padding: 14px; text-align: left; }
+    .stat-top-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+    .stat-src-name { font-size: 12px; font-weight: 700; text-transform: uppercase; color: #7dd3fc; }
+    .stat-big-time { font-size: 24px; font-weight: 800; color: #f8fafc; }
+    .stat-sub-desc { font-size: 12px; color: #94a3b8; line-height: 1.5; }
+
+    .recent-run-tag { font-size: 11px; color: #94a3b8; margin-top: 10px; display: flex; justify-content: space-between; border-top: 1px solid #334155; padding-top: 8px; }
 
     /* Info & Accordion */
     .info-row { display: flex; justify-content: space-between; padding: 6px 0; font-size: 12px; color: #94a3b8; border-bottom: 1px solid #0f172a; }
@@ -136,7 +143,7 @@
       </div>
 
       <div class="source-pill badge-grid" id="sourceBadge">
-        <span class="pulse-dot"></span>
+        <span class="pulse-dot" id="sourcePulse"></span>
         <span id="sourceText">GRID / MAINS ACTIVE</span>
       </div>
 
@@ -150,6 +157,11 @@
         ⚠️ <b>Alternate source is active, we are uncertain.</b> Kindly use the appliance as needed and conserve energy.
       </div>
 
+      <!-- Device Offline / Unplugged Notice -->
+      <div id="offlineAlertBox" class="alert-box alert-off" style="display:none;">
+        ⚪ <b>Device Offline / Unplugged:</b> No signal from device (unplugged, socket switched off, or power/Wi-Fi down).
+      </div>
+
       <div class="metrics-row">
         <div class="metric-box">
           <div class="metric-lbl">Frequency</div>
@@ -161,41 +173,47 @@
         </div>
         <div class="metric-box">
           <div class="metric-lbl">Active Since</div>
-          <div class="metric-val" id="valSince" style="color:#7dd3fc; font-size:14px;">07:05 PM</div>
+          <div class="metric-val" id="valSince" style="color:#7dd3fc; font-size:14px;">11:00 AM</div>
         </div>
       </div>
     </div>
 
-    <!-- EXACT RUNTIME AUDIT CARD (ZERO BILL ESTIMATES — 100% CLOCK ACCURATE) -->
+    <!-- EXACT RUNTIME AUDIT CARD (HOURLY / DAILY / WEEKLY / MONTHLY + 4 SOURCE TABS) -->
     <div class="card">
       <div class="sec-header">
         <div class="sec-title">⏱️ Exact Power & Backup Runtime</div>
         <span style="font-size:11px; color:#6ee7b7; font-weight:600;">Clock Verified</span>
       </div>
 
-      <div class="tab-bar">
-        <button class="tab-btn active" onclick="switchTab('daily', this)">Daily</button>
-        <button class="tab-btn" onclick="switchTab('weekly', this)">Weekly</button>
-        <button class="tab-btn" onclick="switchTab('monthly', this)">Monthly</button>
+      <!-- 4 Time Filter Tabs -->
+      <div class="tab-bar-4">
+        <button class="tab-btn" onclick="switchPeriod('hourly', this)">Hourly</button>
+        <button class="tab-btn active" onclick="switchPeriod('daily', this)">Daily</button>
+        <button class="tab-btn" onclick="switchPeriod('weekly', this)">Weekly</button>
+        <button class="tab-btn" onclick="switchPeriod('monthly', this)">Monthly</button>
       </div>
 
-      <div class="audit-grid-3">
-        <div class="audit-cell">
-          <div class="audit-sub-lbl">🚨 Total DG</div>
-          <div class="audit-sub-val" id="dispDgHrs" style="color:#fca5a5;">0h 41m</div>
+      <!-- 4 Dedicated Source Tabs (Mains | DG | Alt | Offline) -->
+      <div class="src-filter-bar">
+        <button class="src-pill-btn active" onclick="switchSourceFilter('mains', this)">⚡ Mains</button>
+        <button class="src-pill-btn" onclick="switchSourceFilter('dg', this)">🚨 DG</button>
+        <button class="src-pill-btn" onclick="switchSourceFilter('alt', this)">🔋 Alt</button>
+        <button class="src-pill-btn" onclick="switchSourceFilter('offline', this)">⚪ Offline</button>
+      </div>
+
+      <!-- Selected Source Exact Clock Stats -->
+      <div class="selected-stat-card" id="selectedStatCard">
+        <div class="stat-top-row">
+          <span class="stat-src-name" id="statSrcLabel">⚡ Grid / Mains (Daily)</span>
+          <span class="stat-big-time" id="statBigTime" style="color:#6ee7b7;">21h 52m</span>
         </div>
-        <div class="audit-cell">
-          <div class="audit-sub-lbl">🔋 Alt Backup</div>
-          <div class="audit-sub-val" id="dispAltHrs" style="color:#fcd34d;">1h 15m</div>
-        </div>
-        <div class="audit-cell">
-          <div class="audit-sub-lbl">🔌 Power Off</div>
-          <div class="audit-sub-val" id="dispOffHrs" style="color:#cbd5e1;">0h 12m</div>
+        <div class="stat-sub-desc" id="statSubDesc">
+          Utility grid power ran for <b>21h 52m</b> with stable 50Hz grid quality.
         </div>
       </div>
 
       <div class="recent-run-tag">
-        <span id="recentSessionText">Last Switch: Grid Restored at 07:05 PM</span>
+        <span id="recentSessionText">Last Switch: Grid / Mains at 11:00 AM</span>
         <span>100% Exact Clock Time</span>
       </div>
     </div>
@@ -254,20 +272,25 @@
     <button class="btn-primary" onclick="fetchLiveTelemetry(true)">🔄 Sync Now</button>
   </div>
 
-  <!-- UNIFIED ZIGO HUMAN-FIRST CHARTER & PROPRIETARY FOOTER -->
+  <!-- UNIFIED ZIGO HUMAN-FIRST CHARTER, COMPLIANCE & PROPRIETARY FOOTER -->
   <div class="footer-charter">
     🤝 <b style="color:#cbd5e1;">Human-First Approach Always • Tech is Only to Empower</b><br/>
     <span style="color:#7dd3fc;">We Sense, Inform & Ask for Action:</span> Zero Employment Impact Guarantee.<br/>
-    <span style="color:#e2e8f0; font-weight:600;">⚡ Proprietary Product Designed & Engineered by ZiGo AmbientCare Systems</span>
+    <span style="color:#e2e8f0; font-weight:600;">⚡ Proprietary Product Designed & Engineered by ZiGo AmbientCare Systems</span><br/>
+    <span style="color:#94a3b8; font-size:10.5px;">MSME Registered • GST Compliant</span>
   </div>
 </div>
 <script>
+  // Exact Runtime Minutes (Clock-accurate counters — Zero Bill Estimates)
   const runtimeAuditData = {
-    daily:   { dgMins: 41,  altMins: 75,  offMins: 12 },
-    weekly:  { dgMins: 195, altMins: 410, offMins: 55 },
-    monthly: { dgMins: 620, altMins: 1480, offMins: 190 }
+    hourly:  { mains: 48,    dg: 5,   alt: 7,    offline: 0 },
+    daily:   { mains: 1312,  dg: 41,  alt: 75,   offline: 12 },
+    weekly:  { mains: 9420,  dg: 195, alt: 410,  offline: 55 },
+    monthly: { mains: 40910, dg: 620, alt: 1480, offline: 190 }
   };
+
   let currentPeriod = 'daily';
+  let currentSourceFilter = 'mains';
   let lastKnownSource = '';
 
   function formatHrsMins(totalMins) {
@@ -293,32 +316,69 @@
     alert(`Paired locally with "${ssid}"! Wi-Fi credentials stay strictly inside your board.`);
   }
 
-  function switchTab(period, elem) {
+  function switchPeriod(period, elem) {
     document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
     elem.classList.add('active');
     currentPeriod = period;
     renderAuditHours();
   }
 
-  function renderAuditHours() {
-    const d = runtimeAuditData[currentPeriod];
-    document.getElementById('dispDgHrs').innerText  = formatHrsMins(d.dgMins);
-    document.getElementById('dispAltHrs').innerText = formatHrsMins(d.altMins);
-    document.getElementById('dispOffHrs').innerText = formatHrsMins(d.offMins);
+  function switchSourceFilter(srcKey, elem) {
+    document.querySelectorAll('.src-pill-btn').forEach(btn => btn.classList.remove('active'));
+    elem.classList.add('active');
+    currentSourceFilter = srcKey;
+    renderAuditHours();
   }
 
+  function renderAuditHours() {
+    const d = runtimeAuditData[currentPeriod];
+    const periodLabel = currentPeriod.charAt(0).toUpperCase() + currentPeriod.slice(1);
+    const lblEl = document.getElementById('statSrcLabel');
+    const timeEl = document.getElementById('statBigTime');
+    const descEl = document.getElementById('statSubDesc');
+
+    if (currentSourceFilter === 'mains') {
+      lblEl.innerText = `⚡ Grid / Mains (${periodLabel})`;
+      lblEl.style.color = '#6ee7b7';
+      timeEl.innerText = formatHrsMins(d.mains);
+      timeEl.style.color = '#6ee7b7';
+      descEl.innerHTML = `Utility grid power ran for <b>${formatHrsMins(d.mains)}</b> with stable 50Hz grid quality.`;
+    } else if (currentSourceFilter === 'dg') {
+      lblEl.innerText = `🚨 DG Genset (${periodLabel})`;
+      lblEl.style.color = '#fca5a5';
+      timeEl.innerText = formatHrsMins(d.dg);
+      timeEl.style.color = '#fca5a5';
+      descEl.innerHTML = `Diesel generator backup ran for <b>${formatHrsMins(d.dg)}</b>. Cross-check easily with your society DG log.`;
+    } else if (currentSourceFilter === 'alt') {
+      lblEl.innerText = `🔋 Alternate Backup (${periodLabel})`;
+      lblEl.style.color = '#fcd34d';
+      timeEl.innerText = formatHrsMins(d.alt);
+      timeEl.style.color = '#fcd34d';
+      descEl.innerHTML = `Inverter / non-DG backup ran for <b>${formatHrsMins(d.alt)}</b>.`;
+    } else {
+      lblEl.innerText = `⚪ Offline / Unplugged (${periodLabel})`;
+      lblEl.style.color = '#cbd5e1';
+      timeEl.innerText = formatHrsMins(d.offline);
+      timeEl.style.color = '#cbd5e1';
+      descEl.innerHTML = `Device offline or unplugged duration: <b>${formatHrsMins(d.offline)}</b> (no signal received).`;
+    }
+  }
   function applyDeviceState(mode, freqHz, jitterUs, activeSinceStr) {
     const heroCard = document.getElementById('liveHeroCard');
     const badge = document.getElementById('sourceBadge');
     const srcTxt = document.getElementById('sourceText');
     const dgBox = document.getElementById('dgAlertBox');
     const altBox = document.getElementById('uncertainAlertBox');
+    const offBox = document.getElementById('offlineAlertBox');
+    const liveDot = document.getElementById('liveDot');
     const nowTime = activeSinceStr || new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
     heroCard.className = 'live-hero-card';
     badge.className = 'source-pill';
     dgBox.style.display = 'none';
     altBox.style.display = 'none';
+    offBox.style.display = 'none';
+    liveDot.className = 'live-dot';
 
     if (mode !== lastKnownSource) {
       document.getElementById('valSince').innerText = nowTime;
@@ -345,10 +405,14 @@
       dgBox.style.display = 'block';
       document.getElementById('recentSessionText').innerText = `Last Switch: DG Genset Started at ${nowTime}`;
     } else {
-      heroCard.classList.add('outage');
-      badge.classList.add('badge-outage');
-      srcTxt.innerText = 'POWER OFF / BLACKOUT';
-      document.getElementById('recentSessionText').innerText = `Last Switch: Power Cut at ${nowTime}`;
+      heroCard.classList.add('offline');
+      badge.classList.add('badge-offline');
+      liveDot.classList.add('off');
+      srcTxt.innerText = 'DEVICE OFFLINE / UNPLUGGED';
+      offBox.style.display = 'block';
+      document.getElementById('valFreq').innerHTML = `-- <span style="font-size:11px;font-weight:400;color:#94a3b8;">Hz</span>`;
+      document.getElementById('valJitter').innerHTML = `-- <span style="font-size:11px;font-weight:400;color:#94a3b8;">µs</span>`;
+      document.getElementById('recentSessionText').innerText = `Last Signal: Device Offline at ${nowTime}`;
     }
   }
 
@@ -406,4 +470,3 @@
 </script>
 </body>
 </html>
-
